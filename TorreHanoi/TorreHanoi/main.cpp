@@ -1,13 +1,118 @@
 #include <stdlib.h>
 #include <iostream>
 #include <stdio.h>
-#include <dos.h>
-#include <time.h>
-#include <math.h>
-#include <stdio.h>  
-#include <windows.h> 
+#include <iostream>
+#include <string>
 
+#include "Gestor.h"
 using namespace std;
+
+Gestor gestor;
+
+void initGestores() {
+	gestor = Gestor::Gestor();
+	gestor.agregarJugador("Jose");
+	gestor.mostrarJugadores();
+	//gestor.matricular("Cur-1","Est-1");
+}
+
+int main(int argc, char** argv) {
+
+
+	void mostarMenu();
+	string leerOp();
+	bool ejecutarMenu(string opcion);
+
+	string opcion;
+	bool noSalir = true;
+
+	while (noSalir) {
+		mostarMenu();
+		opcion = leerOp();
+		noSalir = ejecutarMenu(opcion);
+	}
+
+	return 0;
+}
+
+void mostarMenu() {
+
+	cout << "**    Menu    **" << endl;
+	cout << "1. Agregar jugador" << endl;
+	cout << "2. Mostrar jugador" << endl;
+	cout << "3. Escoger jugadores" << endl;
+
+	cout << "Seleccione una opcion" << endl;
+}
+
+
+string leerOp() {
+	string opcion;
+	cin >> opcion;
+	return opcion;
+}
+
+bool ejecutarMenu(string opcion) {
+	void agregarJugador();
+	void mostrarJugadores();
+
+	if (opcion == "1") {
+		agregarJugador();
+	}
+	else if (opcion == "2") {
+		mostrarJugadores();
+		
+	}
+	else if (opcion == "3") {
+		
+	}
+	else if (opcion == "4") {
+		
+	}
+	else if (opcion == "5") {
+
+	}
+	else if (opcion == "6") {
+		
+	}
+	else if (opcion == "7") {
+	
+	}
+	else if (opcion == "8") {
+		
+	}
+	else if (opcion == "9") {
+	
+	}
+	else if (opcion == "10") {
+		
+	}
+	else if (opcion == "0") {
+		return false;
+	}
+	else {
+		cout << "Opcion invalida" << "\n" << endl;
+	}
+	return true;
+}
+void agregarJugador() {
+	string nombre;
+	cout << "Ingrese el nombre/ o apodo del jugador" << endl;
+	cin >> nombre; 
+	gestor.agregarJugador(nombre);
+	cout << "Se ingreso correctamente el jugador" << endl;
+}
+void mostrarJugadores() {
+	cout << "Hola" << endl;
+//	if (gestor.validarSiHayJugadores()) {
+		cout << gestor.mostrarJugadores() << endl;
+//	}
+//	else {
+		cout << "No se encuentran registrados jugadores" << endl;
+//	}
+	
+}
+/*using namespace std;
 //-----------------------------------------------------------------------------
 struct HANOI
 {
@@ -353,4 +458,4 @@ otra_vez:
 		goto otra_vez;
 	}
 	
-}
+}*/
